@@ -1,1 +1,0 @@
-<annotations><filename>00001314.JPEG</filename><folder>images</folder><size><width>1210</width><height>680</height><depth>3</depth></size><object><name>reg</name><pose>Unspecified</pose><truncated>0</truncated><difficult>0</difficult><bndbox><xmin>417.0</xmin><ymin>436.0</ymin><xmax>559.0</xmax><ymax>506.0</ymax></bndbox></object></annotations>

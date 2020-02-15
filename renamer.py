@@ -9,12 +9,12 @@ import os
 #Ändra från annotations till mappen du vill ändra namnen i.
 def main(): 
       
-    for filename in os.listdir("downloads"):
+    for filename in os.listdir("images"):
         arr=filename.split(".")
-        if arr[1]=="jpg":
-            dst = arr[0]+ ".JPEG"
-            src ='downloads/'+ filename 
-            dst ='annotations/'+ dst 
+        if arr[1]=="JPEG":
+            dst = arr[0]+ ".jpg"
+            src ='images/'+ filename 
+            dst ='images/'+ dst 
             
             # rename() function will 
             # rename all the files 

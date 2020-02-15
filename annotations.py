@@ -152,11 +152,11 @@ class LabelTool():
             except ValueError as ve:
                 tkMessageBox.showerror("Error!", message = "The folder should be numbers")
                 return
-        if not os.path.isdir('./downloads/%s' % self.category):
+        if not os.path.isdir('./images/%s' % self.category):
            tkMessageBox.showerror("Error!", message = "The specified dir doesn't exist!")
            return
         # get image list
-        self.imageDir = os.path.join(r'./downloads', '%s' %(self.category))
+        self.imageDir = os.path.join(r'./images', '%s' %(self.category))
         self.imageList = glob.glob(os.path.join(self.imageDir, '*.jpg'))
         if len(self.imageList) == 0:
             print ('No .jpg images found in the specified dir!')

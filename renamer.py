@@ -11,8 +11,8 @@ def main():
       
     for filename in os.listdir("images"):
         arr=filename.split(".")
-        if arr[1]=="JPEG":
-            dst = arr[0]+ ".jpg"
+        if arr[1]=="jpg":
+            dst = arr[0]+ ".JPEG"
             src ='images/'+ filename 
             dst ='images/'+ dst 
             

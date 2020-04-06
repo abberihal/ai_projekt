@@ -25,4 +25,25 @@ Jag använder bs4 för webscarping
 * tesseract-ocr
 ### Installera följande biblotek till python
 * tensorflow 1.14.0 ``` pip install tensorflow==1.14.0```
+* pytesseract ``` pip install pytesseract ```
+* opencv-python ``` pip install opecv-python```
+* numpy ``` pip install numpy```
+* bs4 ``` pip install bs4```
+* requests ``` pip install requests```
+* keras ``` pip install keras```
+* imgaug ``` pip install imgaug```
 
+### klona den här githuben
+
+### Videos
+I mappen videos ligger video filer som du kan testa att köra programmet på. 
+
+## Körning
+* öppna cmd i mappen
+* ``` python evalute.py```
+
+
+## Utvärdering
+
+### Vad skulle jag ha gjort bättre
+J

@@ -1,31 +1,16 @@
-# AI projekt - Plateinfo - Registreringsskylt-igenkännare
-Plateinfo låter dig enkelt och smidigt läsa av registreringsskyltar. Det görs möjligt med bland annat machine learning och computer vision. 
+# AI projekt - Registreringsskylt-igenkännar
+I detta projekt har jag skapat ett program som utifrån en video/bild kan känna igen och hämta information från registreringsskyltar. 
 
-## Hur det fungerar
-Programmet är byggt på fyra viktiga komponenter. De är keras-yolo(+ tensorflow) för att detektera registreringsskyltar, tesseract-ocr för bild till text, opencv för bildmanipulation och webscarping för information om bilar.
+## Filer
+* **evaluate.py** - kör hela programmet
+* **modules/get.py** - script som hämtar uppgifter om registreringsskyltar.
+* **training** - här i finns alla filer för att skapa ett eget dataset. 
+* **videos** - här finns videos att testköra programmet med.
+* **model** - här i finns min tränade modell. 
 
-Bild --> Objekt detektering --> beskär --> bild till text --> kollar information --> ritar ut det på bilden
+## Testa
 
-### keras yolo tensorflow
-På google colabs har jag tränat en modell med hjälp av bilder som jag har scrapat från blocket.[Här finns colaben](https://colab.research.google.com/drive/1tSF34kyJC9ngSNE0CS-oHfLN7gLoWNZN)
-Jag har byggt programmet utifrån evaluate.py i colaben. 
-
-
-### opencv
-Programmet använder bilbotekt opencv-python för hanteringen och manipulationen av bilder. Jag använder också cv2 för läsningen av videor, där varje frame hanteras som en bild.
-
-
-### tesseract
-För att få bild till text använder jag bilboteket pytesseract. Det är väldigt enkelt och smidigt att använda, utmaningen är att få till en bra bild att läsa ifrån.
-Jah använder den här funktionen för att läsa av en bild. 
-``` pytesseract.image_to_string(img)```
-
-### bs4 + requests
-Jag använder bs4 för webscarping
-
-## Installation
-
-### Du behöver följande program installerade påå din dator.
+### Du behöver följande program installerade på din dator.
 * Python 3.7 64 bit med pip
 * tesseract-ocr
 ### Installera följande biblotek till python
@@ -40,7 +25,7 @@ Jag använder bs4 för webscarping
 
 ### klona den här githuben till en mapp på din dator.
 
-## Körning
+## Starta programmmet
 * öppna cmd i mappen
 * ``` python evalute.py```
 

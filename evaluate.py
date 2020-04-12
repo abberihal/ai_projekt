@@ -101,7 +101,7 @@ def detect(img_path): # tar in en bild och kör modellen över den.
 
 
 def video(): # läser in en video och kör detect() på varje frame
-    cap = cv2.VideoCapture("videos/VID_20200331_140548.mp4")
+    cap = cv2.VideoCapture("videos/VID_20200331_140548.mp4") # om du vill använda en annan video byt ut path:en
 
     while(cap.isOpened()):
         ret, frame = cap.read()

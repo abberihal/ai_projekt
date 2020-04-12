@@ -5,7 +5,7 @@ I detta projekt har jag skapat ett program som utifrån en video/bild kan känna
 * **evaluate.py** - kör hela programmet
 * **modules/get.py** - script som hämtar uppgifter om registreringsskyltar.
 * **training** - här i finns alla filer för att skapa ett eget dataset.[Här är kan du kolla min google colab](https://www.google.com "Google colab")
-* **videos** - här finns videos att testköra programmet med.
+* **videos** - här finns videos att testköra programmet med. [Länk till videos](https://drive.google.com/open?id=1lXPwHAA9v_IUEWAGe2GAQDeBELpKX3jB)
 * **model** - här i finns min tränade modell. 
 ## Testa
 

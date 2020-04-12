@@ -3,9 +3,6 @@ import json, cv2, re, os, yolo, pytesseract, math
 import numpy as np
 from yolo.frontend import create_yolo
 from yolo.backend.utils.eval.fscore import count_true_positives, calc_score
-from pascal_voc_writer import Writer
-from shutil import copyfile
-from matplotlib import pyplot as plt
 from modules.get import getCarInfo
 
 pytesseract.pytesseract.tesseract_cmd = "C:/Program Files/Tesseract-OCR/tesseract.exe"
@@ -15,7 +12,7 @@ DEFAULT_WEIGHT_FILE = "model/model.h5"
 DEFAULT_THRESHOLD = 0.3
 licenseNumber = ""
 carInfo = {}
-def initYolo():
+def initYolo(): # laddar in modellen och Konfigurerar yolo. 
     with open(DEFAULT_CONFIG_FILE) as config_buffer:
         config = json.loads(config_buffer.read())
     if config['train']['is_only_detect']:
@@ -37,7 +34,7 @@ def initYolo():
 yolo,labels = initYolo()
 
 
-def draw_scaled_boxes(image, boxes, probs, labels,scale, desired_size=400):
+def draw_scaled_boxes(image, boxes, probs, labels,scale, desired_size=400): # skär ner bilden till bara regplåten och sedan kör ocr på den
     global licenseNumber
     global carInfo
     img_size = min(image.shape[:2])
@@ -54,6 +51,7 @@ def draw_scaled_boxes(image, boxes, probs, labels,scale, desired_size=400):
     else:
         boxes_scaled = boxes
 
+    # Här scalar jag boxen runt regplåten för att vara säker på att allt kommer med.
     scaleUp = 1+(scale/100)
     scaleDown = 1-(scale/100)
     if boxes != []:
@@ -65,16 +63,16 @@ def draw_scaled_boxes(image, boxes, probs, labels,scale, desired_size=400):
 
         # print("x1", x1, "y1", y1, "x2", x2, "y2", y2)
         cropped_img = img_scaled[y1:y2, x1:x2]
-        regexTest = re.findall("[A-Ö]{3}[0-9]{3}",pytesseract.image_to_string(cropped_img).replace(" ", "").replace("\n", "").replace("_", ""))
+        regexTest = re.findall("[A-Ö]{3}[0-9]{3}",pytesseract.image_to_string(cropped_img).replace(" ", "").replace("\n", "").replace("_", "")) # använer regex för att se till att texten vi får matchar en regskylt. Tar även bort skit
         if(regexTest != []):
             licenseNumber = regexTest
-            carInfo = getCarInfo(licenseNumber[0])
+            carInfo = getCarInfo(licenseNumber[0]) # hämtar information om bilen. 
             print(licenseNumber)
 
-    return draw_boxes(img_scaled, boxes_scaled, probs, labels,2)
+    return draw_boxes(img_scaled, boxes_scaled, probs, labels,2) 
         
 
-def draw_boxes(image, boxes, probs, labels, scale):
+def draw_boxes(image, boxes, probs, labels, scale): # skriver ut informationen och ritar boxen på orinal bilden
     global licenseNumber
     global carInfo
     scaleUp = 1+(scale/100)
@@ -93,8 +91,8 @@ def draw_boxes(image, boxes, probs, labels, scale):
     return image        
 
 
-def detect(img_path):
-    image = img_path
+def detect(img_path): # tar in en bild och kör modellen över den.
+    image = img_path # om man bar vill testa med en bild byt mot cv2.imread(img_path)
 
     boxes, probs = yolo.predict(image, float(DEFAULT_THRESHOLD))
 
@@ -102,8 +100,8 @@ def detect(img_path):
     return image
 
 
-def video():
-    cap = cv2.VideoCapture("videos/video_home1.mp4")
+def video(): # läser in en video och kör detect() på varje frame
+    cap = cv2.VideoCapture("videos/VID_20200331_140548.mp4")
 
     while(cap.isOpened()):
         ret, frame = cap.read()
@@ -115,3 +113,4 @@ def video():
     cv2.destroyAllWindows()
 
 video()
+

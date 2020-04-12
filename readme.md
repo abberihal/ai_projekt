@@ -1,4 +1,4 @@
-# AI projekt - Registreringsskylt-igenkännar
+# AI projekt - Registreringsskyltar
 I detta projekt har jag skapat ett program som utifrån en video/bild kan känna igen och hämta information från registreringsskyltar. 
 
 ## Filer
@@ -37,9 +37,9 @@ Enligt mig finns det tre grejer som skulle ha gjorts bättre, de är:
 * Modellen för registreringsskyltarna
 Modellen borde vara tränad på bilar i trafik och inte bilar från blocket. Detta var svårt att genomföra för det var svårt att hitta ett tilräckligt stort dataset av svenska bilar i trafik. 
 * Prestanda
-Just nu körs programmet väldigt segt och videon spelas upp med otroligt låga FPS.
+Just nu körs programmet väldigt segt och videon spelas upp med låga FPS.
 * tesseract-ocr
 bild till text är nog det jag hade stört problem med. tesseract är ett bra biblotek men för att få en bra avläsning av en bild krävs att det inte finns något som stör och att texten är helt rak. För att lösa detta skulle jag behöva lära mig mer om bildmanipilation. 
 
 ### Vidare utveckling
-Möjligheter för vidare utveckling kan t.ex vara att bygga det på en app eller integrera den med dashcams. Ett ett driftsäkert system med hög träffsäkerhet skulle med stor sannolikhet vara intressant för polisen. 
+Möjligheter för vidare utveckling kan t.ex vara att bygga det på en app eller integrera den med dashcams. Ett ett driftsäkert system med hög träffsäkerhet skulle med stor sannolikhet vara intressant för polisen och andra myndigheter. 
